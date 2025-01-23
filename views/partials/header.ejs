@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameboy Goblins</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img id="logo" src="/images/Gameboy Goblins_transparent-.png" alt="Gameboy Goblins Logo">
+        </a>
+        <div id="search-bar">
+            <form action="/items" method="GET">
+                <input type="text" name="q" placeholder="Search games..." required>
+                <button type="submit">Search</button> 
+            </form>
+        </div>
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="/items">Browse</a></li> 
+                    <li><a href="/items/new">Sell</a></li>
+                    <% if (!user) { %>
+                        <li><a href='/users/new'>Sign Up</a></li>
+                        <li><a href='/users/login'>Login</a></li>
+                    <% } else { %>
+                        <li><a href='/users/profile'>Profile</a></li>
+                        <li><a href='/users/logout'>Logout</a></li>
+                    <% } %>  
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <% if (successMessages && successMessages.length > 0) { %>
+        <div class="alert alert-success">
+            <% successMessages.forEach(msg => { %>
+                <p><%= msg %></p>
+            <% }) %>
+        </div>
+    <% } %>
+
+    <% if (errorMessages && errorMessages.length > 0) { %>
+        <div class="alert alert-danger">
+            <% errorMessages.forEach(msg => { %>
+                <p><%= msg %></p>
+            <% }) %>
+        </div>
+    <% } %>
+
+</body>
+</html>
