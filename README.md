@@ -21,7 +21,7 @@ A responsive and feature-rich website powered by **Node.js**, **Express.js**, **
 ## 🛠️ Installation  
 
 1. **Clone the Repository**  
- git clone https://github.com/Gaut-raj/nodejs-express-mongo-ecommerce.git  ```bash
+ git clone https://github.com/Gaut-raj/nodejs-express-mongo-ecommerce.git 
 
 
 cd gameboy-goblins
