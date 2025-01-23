@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container">
+    <h2>Offers received for: <%= item.title %></h2>
+    <table class="offers-table">
+        <thead>
+            <tr>
+                <th>Buyer</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% offers.forEach(Offer => { %>
+                <tr>
+                    <td>
+                        <%= Offer.user.firstName %> <%= Offer.user.lastName %>
+                    </td>
+                    <td>$<%= Offer.amount %></td>
+                    <td>
+                        <% if (Offer.status === 'rejected') { %>
+                            <p>Rejected</p>
+                        <% } else if (Offer.status === 'pending') { %>
+                            <form action="/items/<%= item._id %>/offers/<%= Offer._id %>/accept?_method=PUT" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-blue">Accept</button>
+                            </form>
+                        <% } else { %>
+                            <p>Accepted</p>
+                        <% } %>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/footer.ejs') %>
