@@ -22,7 +22,6 @@ A responsive and feature-rich website powered by **Node.js**, **Express.js**, **
 
 1. **Clone the Repository**  
    ```bash
-   git clone https://github.com/your-username/gameboy-goblins.git
-   cd gameboy-goblins
-
+https://github.com/Gaut-raj/nodejs-express-mongo-ecommerce.git
+cd gameboy-goblins
 
