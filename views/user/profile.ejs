@@ -1,0 +1,66 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container">
+    <h2>Welcome, <%= user.firstName %></h2>
+
+    <h2>My Listings</h2>
+    <table class="listings-table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% items.forEach(item => { %>
+                <tr>
+                    <td><a href="/items/<%= item._id %>"><%= item.title %></a></td>
+                    <td><%= item.active ? 'Active' : 'Inactive' %></td>
+                    <td>
+                        <a href="/items/<%= item._id %>/edit">
+                            <img src="/images/edit-button.png" alt="Edit" class="action-icon">
+                        </a>
+                        <form action="/items/<%= item._id %>?_method=DELETE" method="POST" style="display: inline;">
+                            <button type="submit" class="action-button">
+                                <img src="/images/bin.png" alt="Delete" class="action-icon">
+                            </button>
+                        </form>
+                        
+                        <% if (item.totalOffers > 0) { %>
+                            <a href="/items/<%= item._id %>/offers" class="btn btn-blue">View Offers</a>
+                        <% } else { %>
+                            <a href="#" class="btn btn-grey" style="pointer-events: none;">View Offers</a>
+                        <% } %>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    
+
+   
+    <h2>My Offers</h2>
+<table class="offers-table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Status</th>
+            <th>Offer Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% offers.forEach(offer => { %>
+            <% if (offer.item) { %> 
+                <tr>
+                    <td><a href="/items/<%= offer.item._id %>"><%= offer.item.title %></a></td>
+                    <td><%= offer.status %></td>
+                    <td>$<%= offer.amount.toFixed(2) %></td>
+                </tr>
+            <% } %>
+        <% }) %>
+    </tbody>
+</table>
+</div>
+
+<%- include('../partials/footer.ejs') %>
