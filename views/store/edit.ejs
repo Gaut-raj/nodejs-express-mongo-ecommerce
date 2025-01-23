@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>Edit Item</h1>
+
+<form action="/items/<%= item.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <pre>
+        Title     : <input type="text" name="title"
+                    value="<%= item.title %>" required> <br>
+
+                    Condition:
+<select name="condition" required>
+    <option value="new" <%= item.condition === 'new' ? 'selected' : '' %>>New</option>
+    <option value="like-new" <%= item.condition === 'like-new' ? 'selected' : '' %>>Like New</option>
+    <option value="good" <%= item.condition === 'good' ? 'selected' : '' %>>Good</option>
+    <option value="fair" <%= item.condition === 'fair' ? 'selected' : '' %>>Fair</option>
+    <option value="acceptable" <%= item.condition === 'acceptable' ? 'selected' : '' %>>Acceptable</option>
+</select> <br>
+
+                    
+                    
+
+        Price     : <input type="number" name="price"  required step="any"
+                    value="<%= item.price %>" required> <br>
+
+        Details   : <textarea name="details" required><%= item.details %></textarea> <br>
+
+        
+        Current Image:
+        <img src="/images/<%= item.image %>" alt="<%= item.title %>" width="100" height="100"> <br>
+
+        Upload New Image: <input type="file" name="image" accept=".jpeg,.jpeg,.png,.gif, .jpg"> <br>
+
+        <input type="submit" value="Update Item"> 
+    </pre>
+</form>
+
+<%- include('../partials/footer.ejs') %>

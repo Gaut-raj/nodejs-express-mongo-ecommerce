@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container">
+    <h1><%= item.title %></h1>
+    <p>Listed by: <%= item.seller ? item.seller.firstName + ' ' + item.seller.lastName : 'Seller information not available' %></p>
+
+    <img src="/images/<%= item.image %>" alt="<%= item.title %>" class="item-image" />
+
+    <section>
+        <h2>Item Details</h2>
+        <p><strong>Condition:</strong> <%= item.condition %></p>
+        <p><strong>Price:</strong> $<%= item.price %></p>
+        <p><Strong>Offers:</Strong><%= item.totalOffers %></p>
+        <p><strong>Description:</strong> <%= item.details %></p>
+        <% if (!item.active) { %>
+            <p style="color: blue; font-weight: bold;">This game has been sold.</p>
+        <% } else { %>
+            <p><strong>Highest Offer:</strong> $<%= item.highestOffer.toFixed(2) %></p>
+            <form action="/items/<%= item._id %>/offers" method="POST">
+                <label for="amount">Make an Offer:</label>
+                <input type="number" id="amount" name="amount" required min="0.01" step="0.01">
+                <button type="submit">Submit Offer</button>
+            </form>
+        <% } %>
+        
+    </section>
+    
+</div>
+
+
+<%- include('../partials/footer.ejs') %>

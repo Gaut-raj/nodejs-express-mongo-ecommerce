@@ -1,0 +1,60 @@
+
+
+<%- include('../partials/header.ejs') %>
+
+<main>
+    <div class="form-container">
+        <h2>List a New Item</h2>
+        <form action="/items" method="POST" class="new-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            
+            
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required step="any">
+            </div>
+            
+            <div class="form-group">
+                <label for="condition">Condition:</label>
+                <select id="condition" name="condition" required>
+                    <option value="" disabled selected>Select condition</option>
+                    <option value="new">New</option>
+                    <option value="like-new">Like New</option>
+                    <option value="good">Good</option>
+                    <option value="fair">Fair</option>
+                    <option value="poor">Poor</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="details">Details:</label>
+                <textarea id="details" name="details" rows="4" required></textarea>
+            </div>
+            
+            <label for="image">Upload Image:</label>
+            <input type="file" name="image" id="image" accept=".jpeg,.jpg,.png,.gif,.avif" required>
+            
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option value="action">Action</option>
+                    <option value="racing">Racing</option>
+                    <option value="RPG">RPG</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="open world">Open World</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<%- include('../partials/footer.ejs') %>
+
