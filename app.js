@@ -15,8 +15,7 @@ let host = 'localhost';
 app.set('view engine', 'ejs');
 
 // MongoDB URI
-const mongoURI = 'mongodb+srv://dgovind1:dgovind1@cluster0.zf0kh.mongodb.net/project5?retryWrites=true&w=majority&appName=Cluster0';
-
+const mongoURI "mongodb+srv://readonlyUser:password123@cluster.mongodb.net/demoDatabase"; //Read-only Duplicate URI for privacy purposes
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
