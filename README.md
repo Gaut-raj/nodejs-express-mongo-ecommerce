@@ -26,7 +26,7 @@ run localhost:3000 with nodemon app
 
 ## ⚠️ Current Project Status  
 
-This project is currently **read-only** due to the inclusion of a public MongoDB cluster connection. To prevent unauthorized access or misuse of the database, we have restricted any write or administrative operations.  
+This project is currently **read-only** due to the inclusion of a public MongoDB cluster connection. To prevent unauthorized access or misuse of the database, I have restricted any write or administrative operations.  
 
 ### Why Read-Only?  
 1. **Security Concerns**: The public MongoDB URI in use allows anyone to connect. For safety, only read operations are permitted.
@@ -46,5 +46,4 @@ In future updates, the project will implement:
 
 ---
 
-To explore the project and its current functionality, follow the [installation instructions](#installation). If you'd like to collaborate or test this project with full database capabilities, feel free to reach out!
 
